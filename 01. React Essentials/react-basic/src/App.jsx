@@ -1,4 +1,4 @@
-import { Children, useState } from "react";
+import { children, useState } from "react";
 
 import { CORE_CONCEPTS } from "./data";
 import Header from "./components/Header/Header";
@@ -42,10 +42,14 @@ function App() {
                             description={CORE_CONCEPTS[0].description}
                             img={CORE_CONCEPTS[0].image}
                         /> */}
-                        <CoreConcept {...CORE_CONCEPTS[0]} />
-                        <CoreConcept {...CORE_CONCEPTS[1]} />
-                        <CoreConcept {...CORE_CONCEPTS[2]} />
-                        <CoreConcept {...CORE_CONCEPTS[3]} />
+                        {CORE_CONCEPTS.map((conceptItem) => {
+                            return (
+                                <CoreConcept
+                                    key={conceptItem.title}
+                                    {...conceptItem}
+                                />
+                            );
+                        })}
                     </ul>
                 </section>
                 <section id="examples">
